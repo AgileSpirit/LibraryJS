@@ -26,3 +26,10 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+# Intellij Idea files
+.idea
+*.iml
+
+# Build files
+dist
