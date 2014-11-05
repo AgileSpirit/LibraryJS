@@ -1,11 +1,20 @@
 ;(function ( global ) {
     'use strict';
 
+    /*
+     * Déclaration du constructeur pour la classe Validator
+     */
     var Validator = function () {
     };
 
+    /*
+     * Sucre syntaxique pour enrichir la classe Validator
+     */
     var P = Validator.prototype;
 
+    /*
+     * Définition d'une règle de validation
+     */
     P['valideAgeEmprunteur'] = function (age) {
         if (age < 18) {
             console.log('L\'âge de l\'emprunteur n\'atteint pas la limite d\'âge minimale requise (18 ans)');
@@ -18,6 +27,9 @@
         return true;
     };
 
+    /*
+     * Définition d'une autre règle de validation
+     */
     P['valideAgeEmprunteur'] = function (age) {
         if (age < 18) {
             console.log('L\'âge de du co-emprunteur n\'atteint pas la limite d\'âge minimale requise (18 ans)');
@@ -30,6 +42,9 @@
         return true;
     };
 
+    /*
+     * etc.
+     */
     P['valideDureeDuPret'] = function (duree) {
         if (duree < 8) {
             console.log('La durée du prêt n\'atteint pas la durée minimale permise (8 ans)');
@@ -42,6 +57,9 @@
         return true;
     };
 
+    /*
+     * Déclaration d'une instance de Validator pour pouvoir faire appel aux méthodes de la classe Validator en mode "méthode statique" (cf. index.html)
+     */
     if(!window.Validator) {
         window.Validator = new Validator();
     }
