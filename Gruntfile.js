@@ -30,21 +30,25 @@ module.exports = function(grunt) {
         uglify: {
             dist : {
                 options: {
-                    sourceMap: 'dist/sourcemap.map',
+                    sourceMap: 'dist/library.map',
                     preserveComments: 'true'
                 },
                 files: [{
                     src : ['src/**/*.js'],
-                    dest : 'dist/simulators.min.js'
+                    dest : 'dist/library.min.js'
                 }]
             }
         },
 
         copy: {
             dist: {
-                src: ['src/simulators.js'],
-                dest: 'dist/simulators.js'
+                src: ['src/library.js'],
+                dest: 'dist/library.js'
             }
+        },
+
+        qunit: {
+            all: ['test/**/*.html']
         }
 
     });
@@ -55,5 +59,10 @@ module.exports = function(grunt) {
         'copy:dist'
     ]);
 
-    grunt.registerTask('default', 'build');
+    grunt.registerTask('test', [
+        'qunit:all'
+    ]);
+
+
+    grunt.registerTask('default', ['test', 'build']);
 };
